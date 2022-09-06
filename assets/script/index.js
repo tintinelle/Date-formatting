@@ -13,7 +13,19 @@ const formatDate = (date) => {
         return `${Math.round(timePassed / 1000 / 60)} мин. назад`;
     }
     else {
-        return `0${date.getDate()}.0${date.getMonth() + 1}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`;
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        
+        if (day < 9) {
+            day = "0" + day;
+            console.log(day);
+        }
+
+        if (month < 10) {
+            month = "0" + month;
+        }
+
+        return `${day}.${month}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`;
     }
 }
 
